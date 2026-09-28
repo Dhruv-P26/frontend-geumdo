@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Portal — Geumdo High School</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div><span>금도고등학교</span> · Geumdo High School, Est. 1974</div>
+    <div>Office: +82 2-555-0192 &nbsp;|&nbsp; office@geumdo.hs.kr</div>
+  </div>
+</div>
+
+<header class="navbar">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <svg class="crest" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24 3L42 10V22C42 33 34.5 41 24 45C13.5 41 6 33 6 22V10L24 3Z" fill="#0B2545" stroke="#C9A24B" stroke-width="1.5"/>
+        <path d="M24 12L31 15.5V22C31 27.5 28 31.5 24 34C20 31.5 17 27.5 17 22V15.5L24 12Z" fill="#C9A24B"/>
+        <text x="24" y="26" font-family="Georgia, serif" font-size="11" fill="#0B2545" text-anchor="middle" font-weight="700">GHS</text>
+      </svg>
+      <span class="brand-text">
+        <span class="kr">Geumdo High School</span>
+        <span class="sub">HONOR · WISDOM · UNITY</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-label="Menu">&#9776;</button>
+    <nav class="links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="activities.html">Activities</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="student-portal.html" class="active">Student Portal</a>
+      <a href="faculty.html">Faculty &amp; Staff</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero" style="--hero-img:url('https://picsum.photos/seed/geumdo-library/1600/500')">
+  <div class="container">
+    <div class="crumb">HOME / STUDENT PORTAL</div>
+    <h1>Student Portal</h1>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="grid grid-2">
+      <div class="card">
+        <div class="card-body">
+          <h3>Sign in</h3>
+          <p style="margin-bottom:16px;">Demo credentials: <strong>student ID</strong> <code>GHS-2026-014</code>, <strong>password</strong> <code>geumdo123</code> (seeded in the database — see database/init.sql).</p>
+          <form id="login-form">
+            <div class="form-field">
+              <label for="sid">Student ID</label>
+              <input type="text" id="sid" placeholder="GHS-2026-014" required>
+            </div>
+            <div class="form-field">
+              <label for="pwd">Password</label>
+              <input type="password" id="pwd" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn btn-royal" style="width:100%;">Sign In</button>
+            <p id="login-status" class="form-note"></p>
+          </form>
+        </div>
+      </div>
+
+      <div>
+        <span class="badge">RESULT</span>
+        <h2>Your record</h2>
+        <div id="student-record">
+          <p>Sign in to view your grade, homeroom, and latest notices — pulled live from the MySQL database through the backend API.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Geumdo High School</h4>
+        <p>128 Geumdo-ro, Seocho-gu, Seoul, South Korea<br>Building futures since 1974.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <p><a href="about.html">About Us</a></p>
+        <p><a href="activities.html">Activities</a></p>
+        <p><a href="faculty.html">Faculty &amp; Staff</a></p>
+      </div>
+      <div>
+        <h4>Portals</h4>
+        <p><a href="student-portal.html">Student Portal</a></p>
+        <p><a href="contact.html">Contact Us</a></p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>office@geumdo.hs.kr<br>+82 2-555-0192</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Geumdo High School. All rights reserved.</span>
+      <span>Final Year Project — 3-Tier Web Application</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  document.getElementById("login-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const status = document.getElementById("login-status");
+    const record = document.getElementById("student-record");
+    const student_id = document.getElementById("sid").value;
+    const password = document.getElementById("pwd").value;
+    status.textContent = "Checking…";
+    status.className = "form-note";
+    try {
+      const data = await apiPost("/students/login", { student_id, password });
+      status.textContent = "Signed in successfully.";
+      status.className = "form-note success";
+      record.innerHTML = `
+        <div class="card"><div class="card-body">
+          <h3>${data.name}</h3>
+          <table class="data">
+            <tr><th>Student ID</th><td>${data.student_id}</td></tr>
+            <tr><th>Grade</th><td>${data.grade}</td></tr>
+            <tr><th>Homeroom</th><td>${data.homeroom}</td></tr>
+            <tr><th>GPA</th><td>${data.gpa}</td></tr>
+          </table>
+        </div></div>`;
+    } catch (err) {
+      status.textContent = `Sign-in failed: ${err.message}`;
+      status.className = "form-note error";
+    }
+  });
+</script>
+</body>
+</html>

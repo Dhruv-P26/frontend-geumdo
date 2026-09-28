@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geumdo High School — Home</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div><span>금도고등학교</span> · Geumdo High School, Est. 1974</div>
+    <div>Office: +82 2-555-0192 &nbsp;|&nbsp; office@geumdo.hs.kr</div>
+  </div>
+</div>
+
+<header class="navbar">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <svg class="crest" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24 3L42 10V22C42 33 34.5 41 24 45C13.5 41 6 33 6 22V10L24 3Z" fill="#0B2545" stroke="#C9A24B" stroke-width="1.5"/>
+        <path d="M24 12L31 15.5V22C31 27.5 28 31.5 24 34C20 31.5 17 27.5 17 22V15.5L24 12Z" fill="#C9A24B"/>
+        <text x="24" y="26" font-family="Georgia, serif" font-size="11" fill="#0B2545" text-anchor="middle" font-weight="700">GHS</text>
+      </svg>
+      <span class="brand-text">
+        <span class="kr">Geumdo High School</span>
+        <span class="sub">HONOR · WISDOM · UNITY</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-label="Menu">&#9776;</button>
+    <nav class="links">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="activities.html">Activities</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="student-portal.html">Student Portal</a>
+      <a href="faculty.html">Faculty &amp; Staff</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="--hero-img:url('https://picsum.photos/seed/geumdo-campus/1600/900')">
+  <div class="container">
+    <div class="eyebrow">WELCOME TO GEUMDO HIGH SCHOOL</div>
+    <h1>Where Every Student Finds Their Path Forward</h1>
+    <p class="lead">Since 1974, Geumdo High School has shaped confident, curious learners in the heart of the city — through rigorous academics, a proud arts &amp; sports tradition, and a community that looks out for one another.</p>
+    <div class="hero-actions">
+      <a href="admissions.html" class="btn btn-gold" onclick="return false;">Apply for Admission</a>
+      <a href="about.html" class="btn btn-outline">Explore Our School</a>
+    </div>
+  </div>
+</section>
+
+<section class="stats-band">
+  <div class="container">
+    <div class="grid grid-4">
+      <div class="stat"><div class="num">50+</div><div class="label">Years of Excellence</div></div>
+      <div class="stat"><div class="num">1,240</div><div class="label">Students Enrolled</div></div>
+      <div class="stat"><div class="num">86</div><div class="label">Faculty &amp; Staff</div></div>
+      <div class="stat"><div class="num">24</div><div class="label">Clubs &amp; Activities</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">WHY GEUMDO</span>
+      <h2>An education built on three pillars</h2>
+      <p>Our name, "Geumdo" — meaning golden path — reflects our promise: every student leaves with a clear direction and the character to walk it.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="card-body">
+          <h3>Academic Rigor</h3>
+          <p>A national-curriculum-aligned program with STEM, humanities, and language tracks, taught by subject specialists in small, focused classes.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h3>Arts &amp; Athletics</h3>
+          <p>From the choir and taekwondo team to the robotics club, students build discipline and creativity well beyond the classroom.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h3>Community &amp; Care</h3>
+          <p>Homeroom mentors, a full counseling office, and an active parents' association keep every student supported and seen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="container">
+    <div class="grid grid-2" style="align-items:center;">
+      <div>
+        <span class="badge">CAMPUS LIFE</span>
+        <h2>A campus built for learning and belonging</h2>
+        <p>Our courtyard, library, gymnasium, and science wing sit around the central quad — the same quad where morning assembly and the autumn festival have taken place for five decades.</p>
+        <a href="activities.html" class="btn btn-royal">See Student Activities</a>
+      </div>
+      <div>
+        <img src="https://picsum.photos/seed/geumdo-quad/800/560" alt="Geumdo High School courtyard" style="width:100%;border-radius:4px;box-shadow:var(--shadow);">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">LATEST NOTICES</span>
+      <h2>From the school office</h2>
+    </div>
+    <div id="notices-list" class="grid grid-3">
+      <p class="loading">Loading latest notices…</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Geumdo High School</h4>
+        <p>128 Geumdo-ro, Seocho-gu, Seoul, South Korea<br>Building futures since 1974.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <p><a href="about.html">About Us</a></p>
+        <p><a href="activities.html">Activities</a></p>
+        <p><a href="faculty.html">Faculty &amp; Staff</a></p>
+      </div>
+      <div>
+        <h4>Portals</h4>
+        <p><a href="student-portal.html">Student Portal</a></p>
+        <p><a href="contact.html">Contact Us</a></p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>office@geumdo.hs.kr<br>+82 2-555-0192</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Geumdo High School. All rights reserved.</span>
+      <span>Final Year Project — 3-Tier Web Application</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  // Pull the 3 most recent notices from the backend (MySQL-backed) to prove the 3-tier flow live on the homepage.
+  (async () => {
+    const el = document.getElementById("notices-list");
+    try {
+      const notices = await apiGet("/notices?limit=3");
+      if (!notices.length) { el.innerHTML = "<p>No notices yet.</p>"; return; }
+      el.innerHTML = notices.map(n => `
+        <div class="card"><div class="card-body">
+          <span class="badge">${new Date(n.posted_on).toLocaleDateString()}</span>
+          <h3>${n.title}</h3>
+          <p>${n.body}</p>
+        </div></div>
+      `).join("");
+    } catch (e) {
+      el.innerHTML = `<p class="error-box">Couldn't load notices right now (${e.message}). The API/database might still be starting up.</p>`;
+    }
+  })();
+</script>
+</body>
+</html>
